@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Jurídico — Soares & Marques Advogados</title>
+  <meta name="description" content="Artigos sobre direitos trabalhistas, cíveis e previdenciários em linguagem acessível. Informação jurídica de qualidade para todos.">
+  <meta property="og:title" content="Blog Jurídico — Soares & Marques Advogados">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a href="#conteudo" class="sr-only">Pular para o conteúdo</a>
+
+  <main id="conteudo">
+
+    <header class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Informação jurídica</p>
+        <h1>Blog Jurídico</h1>
+        <div class="divider" style="justify-content:center;margin:1.25rem auto">
+          <div class="divider__line"></div>
+          <div class="divider__dots"><span></span><span></span><span></span></div>
+          <div class="divider__line"></div>
+        </div>
+        <p class="page-hero__desc">
+          Artigos sobre direitos trabalhistas, cíveis e previdenciários — em linguagem acessível, sem juridiquês.
+        </p>
+      </div>
+    </header>
+
+    <section class="section section--dark">
+      <div class="container">
+
+        <!-- FILTROS -->
+        <div class="blog-filters reveal" role="group" aria-label="Filtrar artigos por área">
+          <button class="filter-btn active" data-filter="todos" onclick="filtrarBlog(this,'todos')">Todos</button>
+          <button class="filter-btn" data-filter="trabalhista" onclick="filtrarBlog(this,'trabalhista')">Trabalhista</button>
+          <button class="filter-btn" data-filter="civel" onclick="filtrarBlog(this,'civel')">Cível</button>
+          <button class="filter-btn" data-filter="previdenciario" onclick="filtrarBlog(this,'previdenciario')">Previdenciário</button>
+        </div>
+
+        <!-- ARTIGOS -->
+        <div class="blog-grid" id="blog-grid">
+
+          <article class="blog-card reveal reveal-d1" data-area="trabalhista">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Trabalhista</p>
+              <h2 class="blog-card__title">Fui demitido sem justa causa. Quais são os meus direitos?</h2>
+              <p class="blog-card__excerpt">Entenda quais verbas rescisórias você tem direito a receber, os prazos legais para pagamento e o que fazer se a empresa não cumprir com suas obrigações.</p>
+              <p class="blog-card__meta">Junho 2025 · 5 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d2" data-area="trabalhista">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Trabalhista</p>
+              <h2 class="blog-card__title">A empresa pode descontar do meu salário sem aviso?</h2>
+              <p class="blog-card__excerpt">A CLT é clara sobre os descontos permitidos em folha de pagamento. Saiba o que é legal, o que é ilegal e como contestar cobranças indevidas.</p>
+              <p class="blog-card__meta">Junho 2025 · 4 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d3" data-area="trabalhista">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Trabalhista</p>
+              <h2 class="blog-card__title">Trabalho como MEI para a mesma empresa há anos. Tenho direitos trabalhistas?</h2>
+              <p class="blog-card__excerpt">A pejotização irregular é prática comum e pode gerar reconhecimento de vínculo empregatício. Entenda os critérios que a Justiça do Trabalho utiliza.</p>
+              <p class="blog-card__meta">Junho 2025 · 6 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d1" data-area="civel">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Cível</p>
+              <h2 class="blog-card__title">Meu nome foi negativado indevidamente. O que posso fazer?</h2>
+              <p class="blog-card__excerpt">A negativação indevida gera direito à indenização por dano moral. Saiba como agir, quais providências tomar e qual o valor médio das condenações.</p>
+              <p class="blog-card__meta">Junho 2025 · 5 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d2" data-area="civel">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Cível</p>
+              <h2 class="blog-card__title">O plano de saúde negou meu tratamento. E agora?</h2>
+              <p class="blog-card__excerpt">Negativa de cobertura é um dos principais motivos de ação judicial contra planos. Saiba quando a negativa é ilegal e como obter autorização na Justiça.</p>
+              <p class="blog-card__meta">Junho 2025 · 5 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d3" data-area="civel">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Cível</p>
+              <h2 class="blog-card__title">Guarda compartilhada: como funciona na prática?</h2>
+              <p class="blog-card__excerpt">A guarda compartilhada é a regra no Brasil desde 2014. Entenda o que ela significa no dia a dia, como é definida e o que acontece quando os pais discordam.</p>
+              <p class="blog-card__meta">Junho 2025 · 7 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d1" data-area="previdenciario">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Previdenciário</p>
+              <h2 class="blog-card__title">Quando posso me aposentar? Entenda as regras de transição</h2>
+              <p class="blog-card__excerpt">A Reforma da Previdência criou regras de transição que afetam quem já contribuía antes de 2019. Saiba como descobrir qual regra é mais favorável para você.</p>
+              <p class="blog-card__meta">Junho 2025 · 8 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d2" data-area="previdenciario">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Previdenciário</p>
+              <h2 class="blog-card__title">O que é o BPC e quem tem direito?</h2>
+              <p class="blog-card__excerpt">O Benefício de Prestação Continuada (BPC/LOAS) é um direito constitucional — mas muitos beneficiários em potencial nunca fizeram o requerimento. Entenda os critérios.</p>
+              <p class="blog-card__meta">Junho 2025 · 5 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-d3" data-area="previdenciario">
+            <div class="blog-card__body">
+              <p class="blog-card__area">Previdenciário</p>
+              <h2 class="blog-card__title">INSS indeferiu meu benefício por incapacidade. Posso recorrer?</h2>
+              <p class="blog-card__excerpt">Sim — e as chances de êxito são significativas. Entenda os principais motivos de indeferimento e como um advogado pode reverter a decisão administrativa ou judicial.</p>
+              <p class="blog-card__meta">Junho 2025 · 6 min de leitura</p>
+              <a href="#" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-wa section">
+      <div class="container">
+        <span class="eyebrow reveal">Alguma dúvida?</span>
+        <h2 class="reveal">Leu algo que se aplica ao seu caso?</h2>
+        <p class="reveal">Não deixe para depois. Fale com nossa equipe e entenda seus direitos.</p>
+        <a href="https://wa.me/5515997554851?text=Olá!%20Li%20um%20artigo%20no%20blog%20e%20tenho%20uma%20dúvida."
+           class="btn btn--filled btn--lg reveal" target="_blank" rel="noopener">
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function filtrarBlog(btn, area) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#blog-grid .blog-card').forEach(card => {
+        card.style.display = (area === 'todos' || card.dataset.area === area) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+# ================================================================
+# Sveltia CMS — Soares & Marques Advogados
+# Acesse: https://seusite.github.io/admin/
+# ================================================================
+
+backend:
+  name: github
+  repo: SEU-USUARIO/SEU-REPOSITORIO     # ← Substitua pelo seu repositório
+  branch: main
+  base_url: https://sveltia-cms-auth.pages.dev  # Autenticação OAuth
+
+locale: pt_BR
+site_url: https://soaresemarques.adv.br   # ← Substitua pela sua URL
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# ----------------------------------------------------------------
+# COLEÇÕES DE BLOG
+# ----------------------------------------------------------------
+collections:
+
+  # Blog — Trabalhista
+  - name: blog_trabalhista
+    label: "Blog — Trabalhista"
+    label_singular: "Artigo Trabalhista"
+    folder: "_posts/trabalhista"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data de publicação", name: "date", widget: "datetime", date_format: "DD/MM/YYYY" }
+      - { label: "Resumo (para listagem e SEO)", name: "excerpt", widget: "text", required: true }
+      - { label: "Rascunho?", name: "draft", widget: "boolean", default: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # Blog — Cível
+  - name: blog_civel
+    label: "Blog — Cível"
+    label_singular: "Artigo Cível"
+    folder: "_posts/civel"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data de publicação", name: "date", widget: "datetime", date_format: "DD/MM/YYYY" }
+      - { label: "Resumo", name: "excerpt", widget: "text" }
+      - { label: "Rascunho?", name: "draft", widget: "boolean", default: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # Blog — Previdenciário
+  - name: blog_previdenciario
+    label: "Blog — Previdenciário"
+    label_singular: "Artigo Previdenciário"
+    folder: "_posts/previdenciario"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data de publicação", name: "date", widget: "datetime", date_format: "DD/MM/YYYY" }
+      - { label: "Resumo", name: "excerpt", widget: "text" }
+      - { label: "Rascunho?", name: "draft", widget: "boolean", default: false }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # Configurações gerais do site
+  - name: settings
+    label: "Configurações do Site"
+    files:
+      - label: "Informações do escritório"
+        name: escritorio
+        file: "_data/escritorio.yml"
+        fields:
+          - { label: "Nome do escritório", name: nome, widget: string }
+          - { label: "WhatsApp (com código do país)", name: whatsapp, widget: string }
+          - { label: "Instagram", name: instagram, widget: string }
+          - label: "OAB dos sócios"
+            name: oab
+            widget: object
+            fields:
+              - { label: "OAB Dr. Ygor", name: ygor, widget: string, default: "OAB/SP XXX.XXX" }
+              - { label: "OAB Dra. Beatriz", name: beatriz, widget: string, default: "OAB/SP XXX.XXX" }
