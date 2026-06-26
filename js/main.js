@@ -36,7 +36,7 @@ function url(path) {
    Logo
    ---------------------------------------------------------------- */
 function logoSVG() {
-  return `<img src="${url('/logo.png')}" alt="Soares &amp; Marques Advogados" width="120" style="display:block">`;
+  return `<img src="${url('/logo.png')}" alt="Soares &amp; Marques Advogados">`;
 }
 
 /* ----------------------------------------------------------------
