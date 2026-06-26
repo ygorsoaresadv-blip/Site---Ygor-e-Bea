@@ -4,13 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Direito Trabalhista — Soares & Marques Advogados</title>
-  <meta name="description" content="Defesa de trabalhadores e empresas em ações trabalhistas, verbas rescisórias, horas extras, assédio e mais. Dr. Ygor Pinheiro Soares — OAB/SP XXX.XXX.">
+  <meta name="description" content="Defesa de trabalhadores e empresas em ações trabalhistas: verbas rescisórias, horas extras, assédio, vínculo empregatício e mais. Dr. Ygor Pinheiro Soares. Atendimento em todo o Brasil.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Soares & Marques Advogados">
+  <meta name="keywords" content="advogado trabalhista, direito do trabalho, verbas rescisórias, demissão sem justa causa, horas extras, São Paulo, Brasil">
+  <link rel="canonical" href="https://soaresemarques.adv.br/trabalhista/">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Direito Trabalhista — Soares & Marques Advogados">
-  <meta property="og:description" content="Especialistas em Direito do Trabalho. Calculadora gratuita de verbas rescisórias.">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta property="og:description" content="Especialistas em Direito do Trabalho. Calculadora gratuita de verbas rescisórias. Atendimento em todo o Brasil.">
+  <meta property="og:url" content="https://soaresemarques.adv.br/trabalhista/">
+  <meta property="og:image" content="https://soaresemarques.adv.br/og-image.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Direito Trabalhista — Soares & Marques Advogados">
+  <meta name="twitter:description" content="Especialistas em Direito do Trabalho. Calculadora gratuita de verbas rescisórias.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_32.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -57,7 +92,7 @@
             <p style="color:var(--dourado-claro);font-weight:300;line-height:1.85;margin-bottom:1.75rem">
               Para trabalhadores: orientamos sobre direitos, buscamos o que é devido, representamos em juízo. Para empresas: assessoramos na gestão preventiva, defendemos em reclamações e orientamos sobre conformidade com a CLT.
             </p>
-            <a href="https://wa.me/5515997554851?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20direito%20trabalhista."
+            <a href="https://wa.me/5511991680688?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20direito%20trabalhista."
                class="btn" target="_blank" rel="noopener">Consultar agora pelo WhatsApp</a>
           </div>
         </div>
@@ -182,9 +217,24 @@
               <input type="number" id="t-salario" placeholder="Ex.: 2500,00" min="0" step="0.01" inputmode="decimal">
             </div>
             <div class="form-group">
-              <label for="t-meses">Tempo de serviço (meses)</label>
-              <input type="number" id="t-meses" placeholder="Ex.: 24" min="1" step="1" inputmode="numeric">
+              <label for="t-data-inicio">Data de admissão</label>
+              <input type="date" id="t-data-inicio" aria-label="Data de admissão">
             </div>
+            <div class="form-group">
+              <label for="t-data-fim">Data de demissão</label>
+              <input type="date" id="t-data-fim" aria-label="Data de demissão">
+            </div>
+          </div>
+
+          <div class="form-row" id="t-meses-display" style="display:none">
+            <div class="form-group">
+              <p style="font-family:var(--font-display);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dourado);margin-bottom:.35rem">Tempo calculado</p>
+              <p id="t-meses-texto" style="color:var(--champagne);font-family:var(--font-body);font-size:1rem"></p>
+              <input type="hidden" id="t-meses" value="0">
+            </div>
+          </div>
+
+          <div class="form-row">
             <div class="form-group">
               <label for="t-tipo">Tipo de rescisão</label>
               <select id="t-tipo">
@@ -221,7 +271,7 @@
           </p>
 
           <div style="margin-top:2rem;text-align:center">
-            <a href="https://wa.me/5515997554851?text=Olá!%20Quero%20entender%20meus%20direitos%20na%20rescisão%20do%20contrato."
+            <a href="https://wa.me/5511991680688?text=Olá!%20Quero%20entender%20meus%20direitos%20na%20rescisão%20do%20contrato."
                class="btn" target="_blank" rel="noopener">Consultar resultado com advogado</a>
           </div>
         </div>
@@ -234,7 +284,7 @@
         <span class="eyebrow reveal">Dúvida trabalhista?</span>
         <h2 class="reveal">Fale com Dr. Ygor agora</h2>
         <p class="reveal">Atendimento humanizado, orientação clara e atuação efetiva nos seus direitos.</p>
-        <a href="https://wa.me/5515997554851?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20direito%20trabalhista."
+        <a href="https://wa.me/5511991680688?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20direito%20trabalhista."
            class="btn btn--filled btn--lg reveal" target="_blank" rel="noopener">
           Falar pelo WhatsApp
         </a>

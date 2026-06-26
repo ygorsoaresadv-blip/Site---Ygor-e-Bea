@@ -4,17 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soares & Marques Advogados — Trabalhista, Cível e Previdenciário</title>
-  <meta name="description" content="Escritório de advocacia multidisciplinar em Sorocaba-SP. Atuação nas áreas trabalhista, cível e previdenciária. Dr. Ygor Pinheiro Soares e Dra. Beatriz Farias Marques.">
+  <meta name="description" content="Escritório digital de advocacia multidisciplinar com sede em São Paulo/SP. Atendimento em todo o Brasil nas áreas trabalhista, cível e previdenciária. Dr. Ygor Pinheiro Soares e Dra. Beatriz Farias Marques.">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Soares & Marques Advogados">
   <meta property="og:description" content="Advocacia multidisciplinar com excelência técnica e comprometimento. Trabalhista, Cível e Previdenciário.">
   <meta property="og:image" content="og-image.png">
   <link rel="canonical" href="https://soaresemarques.adv.br/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Analytics 4 — substitua G-XXXXXXXXXX pelo seu ID real -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Facebook Pixel — substitua YOUR_PIXEL_ID pelo seu ID real -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,7 +50,7 @@
     "telephone": "+55-15-99755-4851",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Sorocaba",
+      "addressLocality": "São Paulo",
       "addressRegion": "SP",
       "addressCountry": "BR"
     },
@@ -45,23 +70,7 @@
 
     <section class="hero" aria-label="Apresentação do escritório">
       <div class="hero__logo-wrap" aria-hidden="true">
-        <svg viewBox="0 0 200 284" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="100,6 194,170 6,170" fill="none" stroke="#B99B64" stroke-width="1.4"/>
-          <text x="86" y="124" font-family="Cormorant SC, Georgia, serif" font-weight="600" font-size="60" fill="#B99B64">S</text>
-          <text x="108" y="118" font-family="Cormorant SC, Georgia, serif" font-weight="600" font-size="44" fill="#B99B64" opacity="0.92">M</text>
-          <g stroke="#B99B64" stroke-width="1.1" fill="none" stroke-linecap="round">
-            <circle cx="100" cy="134" r="2.5" fill="#B99B64" stroke="none"/>
-            <line x1="100" y1="136.5" x2="100" y2="156"/>
-            <line x1="79" y1="142" x2="121" y2="142"/>
-            <line x1="79" y1="142" x2="72" y2="153"/>
-            <line x1="72" y1="153" x2="86" y2="153"/>
-            <line x1="121" y1="142" x2="114" y2="153"/>
-            <line x1="114" y1="153" x2="128" y2="153"/>
-          </g>
-          <text x="100" y="196" font-family="Cormorant SC, Georgia, serif" font-weight="400" font-size="12" fill="#B99B64" text-anchor="middle" letter-spacing="3.5">SOARES E MARQUES</text>
-          <line x1="33" y1="205" x2="167" y2="205" stroke="#B99B64" stroke-width="0.8"/>
-          <text x="100" y="222" font-family="Cormorant SC, Georgia, serif" font-weight="300" font-size="8.5" fill="#D2B987" text-anchor="middle" letter-spacing="5.5">A D V O G A D O S</text>
-        </svg>
+        <img src="logo.png" alt="Soares &amp; Marques Advogados" width="200">
       </div>
 
       <p class="hero__overline">Advocacia de excelência</p>
@@ -69,6 +78,7 @@
       <p class="hero__tagline">
         Defesa comprometida dos seus direitos, com rigor técnico e atenção humana em cada caso.
       </p>
+      <p class="hero__location">São Paulo/SP &nbsp;•&nbsp; Escritório digital &nbsp;•&nbsp; Atendimento em todo o Brasil</p>
 
       <div class="hero__areas" role="list">
         <a href="trabalhista/" class="hero__area-link" role="listitem">Trabalhista</a>
@@ -192,21 +202,36 @@
             <a href="sobre/" class="btn" style="margin-top:1.75rem">Conheça os sócios</a>
           </div>
 
-          <div class="socios-list">
-            <div class="socio-card reveal reveal-d1">
-              <p class="socio-card__nome">Dr. Ygor Pinheiro Soares</p>
-              <p class="socio-card__cargo">Advogado Trabalhista — OAB/SP XXX.XXX</p>
-              <p class="socio-card__desc">
-                Especialista em Direito do Trabalho, atua na defesa de trabalhadores e empresas em ações trabalhistas, rescisões, ações de indenização e consultoria preventiva.
-              </p>
+          <div class="insta-cards">
+
+            <div class="insta-card reveal reveal-d1">
+              <svg class="insta-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              <p class="insta-card__nome">Dr. Ygor Pinheiro Soares</p>
+              <p class="insta-card__area">Direito Trabalhista</p>
+              <p class="insta-card__frase">"Seus direitos trabalhistas explicados em linguagem simples. Siga e saiba quando e como agir."</p>
+              <a href="https://www.instagram.com/ygorsoares_bjj/" class="btn" target="_blank" rel="noopener" aria-label="Seguir Dr. Ygor no Instagram">
+                Seguir no Instagram
+              </a>
             </div>
-            <div class="socio-card reveal reveal-d2">
-              <p class="socio-card__nome">Dra. Beatriz Farias Marques</p>
-              <p class="socio-card__cargo">Advogada Cível — OAB/SP XXX.XXX</p>
-              <p class="socio-card__desc">
-                Especialista em Direito Cível, com atuação em direito de família, contratos, responsabilidade civil, consumidor e inventários. Atua também na área previdenciária em parceria com o sócio.
-              </p>
+
+            <div class="insta-card reveal reveal-d2">
+              <svg class="insta-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              <p class="insta-card__nome">Dra. Beatriz Farias Marques</p>
+              <p class="insta-card__area">Direito Cível e Previdenciário</p>
+              <p class="insta-card__frase">"Família, contratos, aposentadoria: conteúdo jurídico para a vida real. Siga e fique por dentro."</p>
+              <a href="https://www.instagram.com/beaf_marques/" class="btn" target="_blank" rel="noopener" aria-label="Seguir Dra. Beatriz no Instagram">
+                Seguir no Instagram
+              </a>
             </div>
+
           </div>
         </div>
       </div>

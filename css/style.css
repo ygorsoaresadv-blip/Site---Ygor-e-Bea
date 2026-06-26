@@ -79,6 +79,27 @@ h3 { font-size: var(--font-h3); }
 
 p { margin-bottom: 0; }
 
+/* Justificação de parágrafos e textos descritivos */
+p,
+.area-card__desc,
+.service-card__desc,
+.blog-card__excerpt,
+.footer__desc,
+.socio-card__desc,
+.page-hero__desc,
+.sobre-text p,
+.socio-full__bio p,
+.privacy-content p,
+.privacy-content li,
+.calc-disclaimer,
+.calc-notice,
+.diferencial__desc,
+.contato-card__sub,
+.chat-bubble__sub {
+  text-align: justify;
+  hyphens: auto;
+}
+
 /* ----------------------------------------------------------------
    LAYOUT
    ---------------------------------------------------------------- */
@@ -277,6 +298,68 @@ p { margin-bottom: 0; }
 .btn--lg { padding: 1.1rem 3rem; font-size: 0.82rem; }
 
 /* ----------------------------------------------------------------
+   CARDS INSTAGRAM DOS SÓCIOS
+   ---------------------------------------------------------------- */
+.insta-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (min-width: 640px) {
+  .insta-cards { grid-template-columns: 1fr 1fr; }
+}
+
+.insta-card {
+  border: 1px solid rgba(185,155,100,0.35);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transition: border-color var(--trans), transform var(--trans);
+  text-align: center;
+  align-items: center;
+}
+.insta-card:hover { border-color: var(--dourado); transform: translateY(-4px); }
+
+.insta-card__icon {
+  width: 44px;
+  height: 44px;
+  color: var(--dourado);
+}
+
+.insta-card__nome {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--dourado);
+  letter-spacing: 0.1em;
+}
+
+.insta-card__area {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--dourado-claro);
+}
+
+.insta-card__frase {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.97rem;
+  color: var(--champagne);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.insta-card .btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ----------------------------------------------------------------
    HERO (HOME)
    ---------------------------------------------------------------- */
 .hero {
@@ -333,8 +416,20 @@ p { margin-bottom: 0; }
   color: var(--dourado-claro);
   max-width: 520px;
   line-height: 1.7;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   animation: riseIn 1s 0.45s cubic-bezier(0.22,1,0.36,1) both;
+}
+.hero__location {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  opacity: 0.75;
+  margin-bottom: 2.5rem;
+  animation: riseIn 1s 0.55s cubic-bezier(0.22,1,0.36,1) both;
+  text-align: center;
 }
 
 .hero__areas {

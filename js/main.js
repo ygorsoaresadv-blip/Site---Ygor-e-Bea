@@ -3,7 +3,14 @@
    Componentes compartilhados + interatividade
    ================================================================ */
 
-const WA_NUMBER = '5515997554851';
+const WA_YGOR     = '5511991680688'; // Dr. Ygor — Trabalhista
+const WA_BEATRIZ  = '5515997554851'; // Dra. Beatriz — Cível e Previdenciário
+
+/* Escolhe o número correto conforme a área da página atual */
+function getWaNumber() {
+  return window.location.pathname.includes('/trabalhista') ? WA_YGOR : WA_BEATRIZ;
+}
+const WA_NUMBER = getWaNumber();
 const INSTAGRAM = 'ygorsoares_bjj';
 
 /* ----------------------------------------------------------------
@@ -26,26 +33,10 @@ function url(path) {
 }
 
 /* ----------------------------------------------------------------
-   SVG Logo
+   Logo
    ---------------------------------------------------------------- */
 function logoSVG() {
-  return `<svg viewBox="0 0 200 284" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <polygon points="100,6 194,170 6,170" fill="none" stroke="#B99B64" stroke-width="1.4"/>
-    <text x="86" y="124" font-family="Cormorant SC, Georgia, serif" font-weight="600" font-size="60" fill="#B99B64">S</text>
-    <text x="108" y="118" font-family="Cormorant SC, Georgia, serif" font-weight="600" font-size="44" fill="#B99B64" opacity="0.92">M</text>
-    <g stroke="#B99B64" stroke-width="1.1" fill="none" stroke-linecap="round">
-      <circle cx="100" cy="134" r="2.5" fill="#B99B64" stroke="none"/>
-      <line x1="100" y1="136.5" x2="100" y2="156"/>
-      <line x1="79" y1="142" x2="121" y2="142"/>
-      <line x1="79" y1="142" x2="72" y2="153"/>
-      <line x1="72" y1="153" x2="86" y2="153"/>
-      <line x1="121" y1="142" x2="114" y2="153"/>
-      <line x1="114" y1="153" x2="128" y2="153"/>
-    </g>
-    <text x="100" y="196" font-family="Cormorant SC, Georgia, serif" font-weight="400" font-size="12" fill="#B99B64" text-anchor="middle" letter-spacing="3.5">SOARES E MARQUES</text>
-    <line x1="33" y1="205" x2="167" y2="205" stroke="#B99B64" stroke-width="0.8"/>
-    <text x="100" y="222" font-family="Cormorant SC, Georgia, serif" font-weight="300" font-size="8.5" fill="#D2B987" text-anchor="middle" letter-spacing="5.5">A D V O G A D O S</text>
-  </svg>`;
+  return `<img src="${url('/logo.png')}" alt="Soares &amp; Marques Advogados" width="120" style="display:block">`;
 }
 
 /* ----------------------------------------------------------------
@@ -101,7 +92,8 @@ function buildFooter() {
   <div class="footer__inner">
     <div class="footer__brand">
       <a href="${url('/')}" aria-label="Página inicial">${logoSVG()}</a>
-      <p class="footer__desc">Escritório de advocacia multidisciplinar com atuação nas áreas trabalhista, cível e previdenciária. Comprometimento, ética e excelência técnica a serviço dos seus direitos.</p>
+      <p class="footer__desc">Escritório digital de advocacia multidisciplinar com atuação nas áreas trabalhista, cível e previdenciária. Sede em São Paulo/SP.</p>
+      <p class="footer__desc" style="margin-top:.5rem;font-style:italic;opacity:.85">Escritório digital • Atendimento em todo o Brasil</p>
     </div>
     <div>
       <p class="footer__heading">Áreas de Atuação</p>
@@ -269,6 +261,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   markActiveNav();
 
+  // Conectar campos de data da calculadora trabalhista
+  const dataInicio = document.getElementById('t-data-inicio');
+  const dataFim    = document.getElementById('t-data-fim');
+  if (dataInicio) dataInicio.addEventListener('change', calcMesesEntreDatas);
+  if (dataFim)    dataFim.addEventListener('change', calcMesesEntreDatas);
+
   // Revelar body (anti-FOUC)
   requestAnimationFrame(() => {
     document.body.classList.add('loaded');
@@ -286,6 +284,45 @@ function formatBRL(value) {
 }
 
 /* ----------------------------------------------------------------
+   Cálculo automático de meses entre datas (calculadora trabalhista)
+   ---------------------------------------------------------------- */
+function calcMesesEntreDatas() {
+  const inicio = document.getElementById('t-data-inicio')?.value;
+  const fim    = document.getElementById('t-data-fim')?.value;
+  const display = document.getElementById('t-meses-display');
+  const texto   = document.getElementById('t-meses-texto');
+  const hidden  = document.getElementById('t-meses');
+
+  if (!inicio || !fim) { if (display) display.style.display = 'none'; return; }
+
+  const d1 = new Date(inicio);
+  const d2 = new Date(fim);
+  if (d2 <= d1) {
+    if (texto) texto.textContent = 'A data de demissão deve ser posterior à admissão.';
+    if (hidden) hidden.value = '0';
+    if (display) display.style.display = 'block';
+    return;
+  }
+
+  let meses = (d2.getFullYear() - d1.getFullYear()) * 12 + (d2.getMonth() - d1.getMonth());
+  const diasRestantes = d2.getDate() - d1.getDate();
+  if (diasRestantes > 0) meses += diasRestantes / 30;
+
+  const anos  = Math.floor(meses / 12);
+  const mesesR = Math.floor(meses % 12);
+  const diasR  = Math.round((meses % 1) * 30);
+
+  let partes = [];
+  if (anos > 0)    partes.push(`${anos} ano${anos > 1 ? 's' : ''}`);
+  if (mesesR > 0)  partes.push(`${mesesR} mês${mesesR > 1 ? 'es' : ''}`);
+  if (diasR > 0)   partes.push(`${diasR} dia${diasR > 1 ? 's' : ''}`);
+
+  if (texto)  texto.textContent = partes.join(', ') || 'Menos de 1 dia';
+  if (hidden) hidden.value = meses.toFixed(2);
+  if (display) display.style.display = 'block';
+}
+
+/* ----------------------------------------------------------------
    Calculadora Trabalhista — Verbas Rescisórias
    ---------------------------------------------------------------- */
 function calcTrabalhista() {
@@ -296,7 +333,7 @@ function calcTrabalhista() {
   const fgts       = parseFloat(document.getElementById('t-fgts')?.value?.replace(',','.')) || 0;
 
   if (salario <= 0 || meses <= 0) {
-    alert('Por favor, preencha o salário e o tempo de serviço.');
+    alert('Por favor, preencha o salário e as datas de admissão e demissão.');
     return;
   }
 

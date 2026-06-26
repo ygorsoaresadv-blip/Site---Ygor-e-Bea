@@ -4,12 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Jurídico — Soares & Marques Advogados</title>
-  <meta name="description" content="Artigos sobre direitos trabalhistas, cíveis e previdenciários em linguagem acessível. Informação jurídica de qualidade para todos.">
+  <meta name="description" content="Artigos jurídicos sobre direito trabalhista, cível e previdenciário em linguagem simples. Informação de qualidade para você conhecer seus direitos.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Soares & Marques Advogados">
+  <link rel="canonical" href="https://soaresemarques.adv.br/blog/">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Blog Jurídico — Soares & Marques Advogados">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta property="og:description" content="Artigos sobre direitos trabalhistas, cíveis e previdenciários em linguagem acessível.">
+  <meta property="og:url" content="https://soaresemarques.adv.br/blog/">
+  <meta property="og:image" content="https://soaresemarques.adv.br/og-image.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog Jurídico — Soares & Marques Advogados">
+  <meta name="twitter:description" content="Artigos sobre direitos trabalhistas, cíveis e previdenciários em linguagem acessível.">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_32.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -184,6 +219,7 @@
 
   <script src="../js/main.js"></script>
   <script>
+    /* Filtro por área */
     function filtrarBlog(btn, area) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -191,6 +227,42 @@
         card.style.display = (area === 'todos' || card.dataset.area === area) ? '' : 'none';
       });
     }
+
+    /* Carrega artigos do JSON gerado pelo build.py (quando disponível) */
+    (async () => {
+      try {
+        const res = await fetch('../_data/articles.json');
+        if (!res.ok) return; // Mantém artigos estáticos se JSON não existir
+        const artigos = await res.json();
+        if (!artigos || artigos.length === 0) return;
+
+        const grid = document.getElementById('blog-grid');
+        if (!grid) return;
+
+        const areaLabel = { trabalhista: 'Trabalhista', civel: 'Cível', previdenciario: 'Previdenciário' };
+        const delays = ['', 'reveal-d1', 'reveal-d2', 'reveal-d3'];
+
+        grid.innerHTML = artigos.map((a, i) => `
+          <article class="blog-card reveal ${delays[i % 3]}" data-area="${a.area}">
+            <div class="blog-card__body">
+              <p class="blog-card__area">${areaLabel[a.area] || a.area}</p>
+              <h2 class="blog-card__title">${a.title}</h2>
+              <p class="blog-card__excerpt">${a.excerpt}</p>
+              <p class="blog-card__meta">Publicado em ${a.date}</p>
+              <a href="${a.url}" class="blog-card__link">
+                Ler artigo
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        `).join('');
+
+        // Reinicializa reveal nas novas cards
+        if (typeof initReveal === 'function') initReveal();
+      } catch (_) {
+        // Silencioso: mantém artigos estáticos
+      }
+    })();
   </script>
 </body>
 </html>
