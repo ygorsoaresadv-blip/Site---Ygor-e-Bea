@@ -7,8 +7,10 @@ backend:
   name: github
   repo: ygorsoaresadv-blip/Site---Ygor-e-Bea
   branch: main
+  base_url: https://sveltia-cms-auth.ygorsoaresadv.workers.dev
+
 locale: pt_BR
-site_url: https://sveltia-cms-auth.ygorsoaresadv.workers.dev   # ← Substitua pela sua URL
+site_url: https://ygorsoaresadv-blip.github.io/Site---Ygor-e-Bea
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
