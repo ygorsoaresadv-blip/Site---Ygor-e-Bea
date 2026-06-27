@@ -5,7 +5,7 @@
 
 backend:
   name: github
-  repo: SEU-USUARIO/SEU-REPOSITORIO     # ← Substitua pelo seu repositório
+  repo: ygorsoaresadv-blip/Site---Ygor-e-Bea
   branch: main
   base_url: https://sveltia-cms-auth.pages.dev  # Autenticação OAuth
 
