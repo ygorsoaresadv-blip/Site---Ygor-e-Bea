@@ -8,7 +8,7 @@ backend:
   repo: ygorsoaresadv-blip/Site---Ygor-e-Bea
   branch: main
 locale: pt_BR
-site_url: https://soaresemarques.adv.br   # ← Substitua pela sua URL
+site_url: https://sveltia-cms-auth.ygorsoaresadv.workers.dev   # ← Substitua pela sua URL
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
