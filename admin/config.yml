@@ -7,8 +7,6 @@ backend:
   name: github
   repo: ygorsoaresadv-blip/Site---Ygor-e-Bea
   branch: main
-  base_url: https://sveltia-cms-auth.pages.dev  # Autenticação OAuth
-
 locale: pt_BR
 site_url: https://soaresemarques.adv.br   # ← Substitua pela sua URL
 
