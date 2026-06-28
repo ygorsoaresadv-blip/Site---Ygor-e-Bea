@@ -3,7 +3,7 @@
 Build script — Soares & Marques Advogados
 Converte artigos Markdown em páginas HTML e gera listagem do blog.
 """
-
+ 
 import os
 import glob
 import json
