@@ -121,7 +121,7 @@ def build_articles():
                 'title': post.get('title', ''),
                 'excerpt': post.get('excerpt', ''),
                 'date': date_str,
-                'url': f'/blog/{area_key}/{slug}.html',
+                'url': f'blog/{area_key}/{slug}.html',
             })
             print(f'  ✓ {slug}')
 
